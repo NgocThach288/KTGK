@@ -66,10 +66,12 @@ const Register = ({ navigation }) => {
           mode="outlined"
           style={{ marginBottom: 10, flex: 1 }}
         />
-        <IconButton 
-          icon={showPassword ? 'eye-off' : 'eye'}
-          onPress={() => setShowPassword(!showPassword)}
-        />
+        <View style={styles.iconContainer}>
+          <IconButton 
+            icon={showPassword ? 'eye-off' : 'eye'}
+            onPress={() => setShowPassword(!showPassword)}
+          />
+        </View>
       </View>
       <View style={styles.passwordContainer}>
         <TextInput
@@ -80,10 +82,12 @@ const Register = ({ navigation }) => {
           mode="outlined"
           style={{ marginBottom: 20, flex: 1 }}
         />
-        <IconButton 
-          icon={showConfirmPassword ? 'eye-off' : 'eye'}
-          onPress={() => setShowConfirmPassword(!showConfirmPassword)}
-        />
+        <View style={styles.iconContainer}>
+          <IconButton 
+            icon={showConfirmPassword ? 'eye-off' : 'eye'}
+            onPress={() => setShowConfirmPassword(!showConfirmPassword)}
+          />
+        </View>
       </View>
       <Button buttonColor='green' textColor='white' mode="contained" onPress={handleRegister} style={{ marginBottom: 10 }} disabled={isDisabled}>
         Register
@@ -101,6 +105,14 @@ const styles = StyleSheet.create({
   passwordContainer: {
     flexDirection: 'row',
     alignItems: 'center',
+  },
+  iconContainer: {
+    position: 'absolute',
+    right: -10,
+    top: -10,
+    bottom: 0,
+    justifyContent: 'center',
+    paddingRight: 10,
   },
 });
 
