@@ -9,9 +9,9 @@ const Login = ({ navigation }) => {
   const [password, setPassword] = useState('');
   const [controller, dispatch] = useMyContextProvider();
   const { userLogin } = controller;
-  const [showPassword, setShowPassword] = useState(false);
   const [isValidEmail, setIsValidEmail] = useState(false);
   const [isValidPassword, setIsValidPassword] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
 
   const handleLogin = () => {
     login(dispatch, email, password);
@@ -56,10 +56,12 @@ const Login = ({ navigation }) => {
           mode="outlined"
           style={{ marginBottom: 20, flex: 1 }}
         />
-        <IconButton
-          icon={showPassword ? 'eye-off' : 'eye'}
-          onPress={() => setShowPassword(!showPassword)}
-        />
+        <View style={styles.iconContainer}>
+          <IconButton
+            icon={showPassword ? 'eye-off' : 'eye'}
+            onPress={() => setShowPassword(!showPassword)}
+          />
+        </View>
       </View>
       <Button
         mode="contained"
@@ -82,6 +84,14 @@ const styles = StyleSheet.create({
   passwordContainer: {
     flexDirection: 'row',
     alignItems: 'center',
+  },
+  iconContainer: {
+    position: 'absolute',
+    right: 0,
+    top: -10,
+    bottom: 0,
+    justifyContent: 'center',
+    paddingRight: 10,
   },
 });
 
